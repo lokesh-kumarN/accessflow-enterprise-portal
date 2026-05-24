@@ -1,0 +1,101 @@
+<div class="min-h-screen flex items-center justify-center bg-slate-100 p-6">
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 bg-white rounded-3xl overflow-hidden shadow-2xl w-full max-w-6xl">
+
+    <!-- LEFT SIDE -->
+
+    <div class="bg-blue-600 text-white p-10 flex flex-col justify-center">
+
+      <h1 class="text-5xl font-bold mb-5">
+        AccessFlow
+      </h1>
+
+      <p class="text-lg leading-8 text-blue-100">
+        Secure Employee Verification and Access Management Platform
+      </p>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div class="p-10">
+
+      <h2 class="text-3xl font-bold text-slate-800 mb-8">
+        Employee Login
+      </h2>
+
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+        class="space-y-5">
+
+        <!-- EMPLOYEE ID -->
+
+        <mat-form-field appearance="outline" class="w-full">
+
+          <mat-label>
+            Employee ID
+          </mat-label>
+
+          <input
+            matInput
+            formControlName="userId">
+
+        </mat-form-field>
+
+        <!-- PASSWORD -->
+
+        <mat-form-field appearance="outline" class="w-full">
+
+          <mat-label>
+            Password
+          </mat-label>
+
+          <input
+            matInput
+            type="password"
+            formControlName="password">
+
+        </mat-form-field>
+
+        <!-- ROLE -->
+
+        <mat-form-field appearance="outline" class="w-full">
+
+          <mat-label>
+            Role
+          </mat-label>
+
+          <mat-select formControlName="role">
+
+            <mat-option value="Admin">
+              Admin
+            </mat-option>
+
+            <mat-option value="General User">
+              General User
+            </mat-option>
+
+          </mat-select>
+
+        </mat-form-field>
+
+        <!-- BUTTON -->
+
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          class="w-full h-12">
+
+          {{ isLoading ? 'Authenticating...' : 'Secure Login' }}
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
